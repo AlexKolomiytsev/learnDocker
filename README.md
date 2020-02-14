@@ -1,7 +1,7 @@
 # learnDocker
 
 1. create and start a container from an image
- + `docker run <image-name> <?start up commad?>`
+ + `docker run -p 5000:8080 (port mapping) <image-name> <?start up commad?>`
   - `docker create <image-name> (outputs container-id)`
   - `docker start -a <container-id> (-a - attach out/err streams)`
 
