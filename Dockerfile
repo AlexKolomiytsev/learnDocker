@@ -1,13 +1,10 @@
-# Specify a base image
-FROM node:alpine
-
+FROM node:alpine as builder
 WORKDIR /app
-
-#Install some dependencies
 COPY package.json .
 RUN npm install
 COPY . .
+RUN npm run build
 
-#Default command
-CMD ["npm", "start"]
-
+# run ngnix - docker run -p 8080:80 <container-id>
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html

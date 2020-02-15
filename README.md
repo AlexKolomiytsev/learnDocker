@@ -22,7 +22,12 @@
 `docker exec -it <container-id> sh (open container’s command prompt) (ctrl + d to exit)`
 
 9. create a new image from Dockerfile
-`docker build -t alexkolomiytsev/projectName:latest <path/to/files and folders we want to encapsulate in a container>`
+```
+docker build 
+[-t alexkolomiytsev/projectName:latest (image tag)]
+[-f Dockerfile.dev (path to Dockerfile)]
+<path/to/files and folders we want to encapsulate in a container>
+```
 
 !!(do not use it, use Dockerfile instead)!!
 `docker commit -c <default command> (e.g. 'CMD ["redis-server"]') <container-id>`
@@ -38,3 +43,12 @@
 
 12. Containers status with Docker-compose
 `docker-compose ps`
+
+13. Bind volumes (~Live reload)
+Any changes made on a local machine, automatically propagates to the docker container (without rebuilding an image and reruning a container)
+```
+docker run -p 3000:3000
+-v /app/node_modules (without ':' - do not make a reference for node_modules)
+-v $(pwd):/app (make a reference from a local machine pwd to container's app folder)
+<image-id>
+```
