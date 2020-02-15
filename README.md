@@ -26,3 +26,15 @@
 
 !!(do not use it, use Dockerfile instead)!!
 `docker commit -c <default command> (e.g. 'CMD ["redis-server"]') <container-id>`
+
+10. Create a network between containers
+`docker-compose up [--build (rebuild images)] [-d (start up containers in the background)]`
+
+11. Restart policies
+ - no
+ - always
+ - on-failure
+ - unless-stopped
+
+12. Containers status with Docker-compose
+`docker-compose ps`
