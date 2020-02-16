@@ -25,10 +25,10 @@ deploy:
     edge: true
     provider: elasticbeanstalk
     region: "us-east-2"
-    app: "learn-docker"
+    app: "learn-redux-multi-docker"
     env: "LearnReduxMultiDocker-env"
     bucket-name: "elasticbeanstalk-us-east-2-889814516794"
-    bucket_path: "learn-docker"
+    bucket_path: "learn-redux-multi-docker"
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
